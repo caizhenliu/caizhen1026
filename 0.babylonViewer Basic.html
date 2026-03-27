@@ -1,14 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>BabylonJS Viewer - Basic usage</title>
-		<script src="https://cdn.babylonjs.com/viewer/babylon.viewer.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>BabylonJS - Fix Broken Skeleton</title>
+    <script src="https://cdn.babylonjs.com/viewer/babylon.viewer.js"></script>
 </head>
 <body>
-	<babylon model="./models/cac-1774434413603.glb"></babylon>
-</body>
 
+    <babylon 
+        id="myViewer"
+        model="./models/cac-1774627023239.glb" 
+        configuration='{
+            "scene": { "autoAnimate": true },
+            "model": {
+                "castShadow": true,
+                "receiveShadows": true
+            }
+        }'>
+    </babylon>
+
+    <script>
+        // 等待 Viewer 準備好
+        BabylonViewer.viewerManager.getViewerById("myViewer").onSceneInitObservable.add(function(scene) {
+            scene.onReadyObservable.add(function() {
+                // 遍歷所有骨架，強制修正矩陣計算
+                scene.skeletons.forEach(sk => {
+                    // 關鍵 1：強制使用精確名稱匹配
+                    sk.useExactName = true;
+                    
+                    // 關鍵 2：遍歷所有骨骼，重置補償矩陣（解決縮進肚子或斷頭）
+                    sk.bones.forEach(bone => {
+                        // 如果有連結的網格，重置它的逆矩陣
+                        if (bone._linkedTransformNode) {
+                            bone._linkedTransformNode.ignoreNonUniformScaling = true;
+                        }
+                    });
+                });
+                
+                // 關鍵 3：強制更新所有網格的骨架計算
+                scene.meshes.forEach(m => {
+                    if (m.skeleton) {
+                        m.computeBonesUsingShaders = true; // 強制使用 Shader 計算，減少 CPU 誤差
+                    }
+                });
+                
+                console.log("骨架暴力修正已完成");
+            });
+        });
+    </script>
+
+</body>
 </html>
