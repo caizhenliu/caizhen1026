@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>BabylonJS Viewer - Basic usage</title>
-		<script src="https://cdn.babylonjs.com/viewer/babylon.viewer.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BabylonJS Viewer - Basic usage</title>
+    <script src="https://cdn.babylonjs.com/viewer/babylon.viewer.js"></script>
 </head>
 <body>
-	<babylon model="./models/cac-1774627023239.glb"></babylon>
-</body>
 
+    <babylon 
+        model="./models/cac-1774627023239.glb" 
+        configuration='{
+            "scene": {
+                "autoAnimate": true,
+                "autoAnimateLoop": true
+            }
+        }'>
+    </babylon>
+
+</body>
 </html>
