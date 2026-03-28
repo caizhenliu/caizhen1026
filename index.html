@@ -3,151 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My 3D Project Hub</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>My Hub</title>
     <style>
         :root {
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --glass-bg: rgba(255, 255, 255, 0.1);
-            --text-color: #ffffff;
+            --bg-color: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --accent-color: #007AFF; /* 經典科技藍 */
+            --line-color: #eeeeee;
         }
 
         body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
             margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: #0f172a; /* 深色背景更顯 3D 專業感 */
-            background-image: radial-gradient(circle at 50% 50%, #1e293b 0%, #0f172a 100%);
-            color: var(--text-color);
-            min-height: 100vh;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
+            min-height: 100vh;
         }
 
         .container {
-            max-width: 800px;
-            width: 90%;
-            padding: 40px 0;
-            text-align: center;
+            width: 100%;
+            max-width: 350px;
+            padding: 20px;
         }
 
         h1 {
-            font-weight: 300;
-            letter-spacing: 2px;
-            margin-bottom: 30px;
-            color: #f8fafc;
-        }
-
-        .profile-link {
-            display: inline-block;
-            margin-bottom: 40px;
-            padding: 10px 25px;
-            background: var(--primary-gradient);
-            border-radius: 30px;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: transform 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-
-        .profile-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(118, 75, 162, 0.4);
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            width: 100%;
-        }
-
-        .card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 25px;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .card:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: scale(1.05);
-            border-color: #667eea;
-        }
-
-        .card i {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            color: #a5b4fc;
-        }
-
-        .card span {
-            font-size: 1.1rem;
+            font-size: 1.25rem;
             font-weight: 500;
-        }
-
-        footer {
-            margin-top: auto;
-            padding: 20px;
-            font-size: 0.8rem;
-            opacity: 0.6;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
         }
 
         hr {
-            width: 50px;
-            border: 1px solid #475569;
-            margin: 20px auto;
+            border: 0;
+            height: 1px;
+            background-color: var(--line-color);
+            margin: 24px 0;
+        }
+
+        .links-group {
+            display: flex;
+            flex-direction: column;
+            gap: 4px; /* 連結之間的微小間距 */
+        }
+
+        a {
+            display: block;
+            text-decoration: none;
+            color: var(--accent-color);
+            font-size: 1.05rem;
+            padding: 12px 16px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            margin-left: -16px; /* 讓懸停背景對齊文字起始位置 */
+        }
+
+        /* 懸停效果：優雅的灰色底層 */
+        a:hover {
+            background-color: #f5f5f7;
+            color: #0056b3;
+            transform: translateX(5px); /* 輕微右移增加動態感 */
+        }
+
+        /* 讓 meeeee 稍微有點獨特性 */
+        .me-link {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .me-link:hover {
+            color: var(--accent-color);
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>Hello MyFriend</h1>
+        <h1>hello MyFriend</h1>
         
-        <a href="sketchfab.html" class="profile-link">
-            <i class="fa-solid fa-user-astronaut"></i> About Me
-        </a>
+        <hr/>
 
-        <hr>
-
-        <div class="grid">
-            <a href="0.babylonViewer Basic.html" class="card">
-                <i class="fa-solid fa-cube"></i>
-                <span>Babylon Basic</span>
-            </a>
-
-            <a href="1.babylonViewer Select.html" class="card">
-                <i class="fa-solid fa-hand-pointer"></i>
-                <span>Viewer Select</span>
-            </a>
-
-            <a href="2.babylonViewer Navbar.html" class="card">
-                <i class="fa-solid fa-bars"></i>
-                <span>Viewer Navbar</span>
-            </a>
-
-            <a href="./webAR" class="card" style="opacity: 0.8;">
-                <i class="fa-solid fa-mobile-screen-button"></i>
-                <span>WebAR Demo</span>
-            </a>
+        <div class="links-group">
+            <a href="sketchfab.html" class="me-link">meeeee</a>
+            
+            <a href="0.babylonViewer Basic.html">Babylon Viewer Basic</a>
+            
+            <a href="1.babylonViewer Select.html">Babylon Viewer Select</a>
+            
+            <a href="2.babylonViewer Navbar.html">Babylon Viewer Navbar</a>
         </div>
-    </div>
 
-    <footer>
-        &copy; 2026 Crafted with Unity & Babylon.js
-    </footer>
+        <hr/>
+    </div>
 
 </body>
 </html>
