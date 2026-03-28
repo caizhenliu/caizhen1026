@@ -1,14 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>BabylonJS Viewer - Basic usage</title>
-		<script src="https://cdn.babylonjs.com/viewer/babylon.viewer.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BabylonJS Viewer - Basic Styled</title>
+    <script src="https://cdn.babylonjs.com/viewer/babylon.viewer.js"></script>
+    <style>
+        /* 1. 設定背景顏色為鵝黃色 */
+        body {
+            background-color: #FFF8E1;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: sans-serif;
+        }
+
+        /* 2. 標題與導航樣式 */
+        .header-title {
+            color: #5D4037;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        /* 3. 3D 模型容器：淺粉色方框 */
+        .viewer-box {
+            width: 400px;  /* 保持適中大小，不會超大 */
+            height: 500px;
+            background-color: white;
+            border: 6px solid #FFEbee; /* 淺粉色方框邊框 */
+            border-radius: 20px;       /* 圓角增加精緻感 */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05); /* 淡淡的陰影 */
+            overflow: hidden;          /* 確保 3D 內容不超出圓角 */
+            position: relative;
+        }
+
+        /* 4. 確保 babylon 標籤填滿方框且邏輯不變 */
+        babylon {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        /* 5. 底部返回按鈕樣式 */
+        .back-link {
+            margin-top: 25px;
+            text-decoration: none;
+            color: #F06292;
+            font-size: 0.9rem;
+            padding: 8px 16px;
+            border: 1px solid #F8BBD0;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            background-color: #FFEbee;
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
 <body>
-	<babylon model="./models/cac-1774683166709.glb"></babylon>
-</body>
 
+    <div class="header-title">3D Model Preview</div>
+
+    <div class="viewer-box">
+        <babylon model="./models/cac-1774683166709.glb"></babylon>
+    </div>
+
+    <a href="index.html" class="back-link">← Back to Menu</a>
+
+</body>
 </html>
