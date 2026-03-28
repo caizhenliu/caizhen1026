@@ -5,18 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Hub</title>
     <style>
+        /* 定義顏色變數 */
         :root {
-            --bg-color: #ffffff;
-            --text-primary: #1a1a1a;
-            --text-secondary: #666666;
-            --accent-color: #007AFF; /* 經典科技藍 */
-            --line-color: #eeeeee;
+            --bg-color: #FFF8E1;      /* 溫柔的鵝黃色背景 */
+            --btn-bg: #FFEbee;        /* 淺粉色按鈕背景 */
+            --btn-border: #F8BBD0;    /* 稍深的粉色邊框 */
+            --btn-text: #880E4F;      /* 深粉色文字，確保清晰度 */
+            --btn-text-hover: #FFFFFF; /* 懸停時的文字顏色 */
+            --btn-hover-bg: #F06292;  /* 懸停時的深粉色背景 */
+            --title-color: #5D4037;   /* 深褐色標題，搭配鵝黃色 */
         }
 
         body {
             background-color: var(--bg-color);
-            color: var(--text-primary);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
             margin: 0;
             display: flex;
             justify-content: center;
@@ -26,56 +28,56 @@
 
         .container {
             width: 100%;
-            max-width: 350px;
-            padding: 20px;
+            max-width: 380px; /* 限制最大寬度，保持精緻感 */
+            padding: 30px;
+            box-sizing: border-box;
+            text-align: center;
         }
 
+        /* 標題樣式 */
         h1 {
-            font-size: 1.25rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--title-color);
+            margin-bottom: 25px;
+            letter-spacing: 0.5px;
+        }
+
+        /* 將連結包裝成方框按鈕 */
+        .btn-link {
+            display: block;                  /* 讓按鈕佔滿整行 */
+            text-decoration: none;           /* 去除底線 */
+            background-color: var(--btn-bg);
+            color: var(--btn-text);
+            border: 2px solid var(--btn-border); /* 方框邊框 */
+            border-radius: 12px;             /* 輕微圓角，更精緻 */
+            padding: 16px 20px;
+            margin-bottom: 15px;             /* 按鈕之間的間距 */
+            font-size: 1rem;
             font-weight: 500;
-            margin-bottom: 8px;
-            letter-spacing: -0.02em;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* 淡淡的陰影增加立體感 */
+            transition: all 0.3s ease;        /* 平滑的過渡效果 */
+            word-wrap: break-word;           /* 確保長文字會斷行，不超出方框 */
         }
 
-        hr {
-            border: 0;
-            height: 1px;
-            background-color: var(--line-color);
-            margin: 24px 0;
+        /* 懸停與點擊效果 */
+        .btn-link:hover {
+            background-color: var(--btn-hover-bg);
+            border-color: var(--btn-hover-bg);
+            color: var(--btn-text-hover);
+            transform: translateY(-3px);     /* 輕微上移 */
+            box-shadow: 0 6px 12px rgba(240, 98, 146, 0.3); /* 增強陰影 */
         }
 
-        .links-group {
-            display: flex;
-            flex-direction: column;
-            gap: 4px; /* 連結之間的微小間距 */
-        }
-
-        a {
-            display: block;
-            text-decoration: none;
-            color: var(--accent-color);
-            font-size: 1.05rem;
-            padding: 12px 16px;
-            border-radius: 8px;
-            transition: all 0.2s ease;
-            margin-left: -16px; /* 讓懸停背景對齊文字起始位置 */
-        }
-
-        /* 懸停效果：優雅的灰色底層 */
-        a:hover {
-            background-color: #f5f5f7;
-            color: #0056b3;
-            transform: translateX(5px); /* 輕微右移增加動態感 */
-        }
-
-        /* 讓 meeeee 稍微有點獨特性 */
+        /* "meeeee" 連結的特殊樣式（可選） */
         .me-link {
-            font-weight: 500;
-            color: var(--text-primary);
+            font-weight: 700;
+            letter-spacing: 1px;
         }
 
-        .me-link:hover {
-            color: var(--accent-color);
+        /* 移除原本的 hr */
+        hr {
+            display: none;
         }
     </style>
 </head>
@@ -84,19 +86,13 @@
     <div class="container">
         <h1>hello MyFriend</h1>
         
-        <hr/>
-
-        <div class="links-group">
-            <a href="sketchfab.html" class="me-link">meeeee</a>
-            
-            <a href="0.babylonViewer Basic.html">Babylon Viewer Basic</a>
-            
-            <a href="1.babylonViewer Select.html">Babylon Viewer Select</a>
-            
-            <a href="2.babylonViewer Navbar.html">Babylon Viewer Navbar</a>
-        </div>
-
-        <hr/>
+        <a href="sketchfab.html" class="btn-link me-link">meeeee</a>
+        
+        <a href="0.babylonViewer Basic.html" class="btn-link">Babylon Viewer Basic</a>
+        
+        <a href="1.babylonViewer Select.html" class="btn-link">Babylon Viewer Select</a>
+        
+        <a href="2.babylonViewer Navbar.html" class="btn-link">Babylon Viewer Navbar</a>
     </div>
 
 </body>
