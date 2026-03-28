@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>caizhen's 3D Model</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* 基礎背景：鵝黃色 */
         body {
-            background-color: #FFF8E1;
+            background-color: #FFF8E1; /* 鵝黃色背景 */
             font-family: 'Segoe UI', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
             margin: 0;
             display: flex;
@@ -18,36 +18,62 @@
             padding: 20px;
         }
 
-        /* 主容器 */
         .sketchfab-embed-wrapper {
             width: 100%;
-            max-width: 600px; /* Sketchfab 建議寬一點比較好操作 */
+            max-width: 650px;
             background-color: white;
             border: 6px solid #FFEbee; /* 淺粉色方框 */
             border-radius: 24px;
-            padding: 25px;
+            padding: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.06);
             text-align: center;
             color: #5D4037;
         }
 
-        /* 標題樣式 */
-        .model-title {
-            font-size: 1.4rem;
-            font-weight: 600;
+        /* 名字與連結的容器 */
+        .user-info-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px; /* 名字與連結的間距 */
             margin-bottom: 10px;
-            display: block;
         }
 
         .user-name {
-            font-size: 0.9rem;
-            color: #F06292;
-            margin-bottom: 20px;
-            display: block;
-            letter-spacing: 1px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #5D4037;
         }
 
-        /* 分隔線 */
+        /* 顯眼的分享連結按鈕 */
+        .share-tag {
+            text-decoration: none;
+            background-color: #F06292; /* 鮮豔的粉紅色 */
+            color: white !important;
+            font-size: 0.85rem;
+            font-weight: bold;
+            padding: 6px 14px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(240, 98, 146, 0.3);
+        }
+
+        .share-tag:hover {
+            background-color: #D81B60;
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(216, 27, 96, 0.4);
+        }
+
+        .model-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 15px 0;
+            display: block;
+        }
+
         hr {
             border: 0;
             height: 1px;
@@ -55,32 +81,12 @@
             margin: 20px 0;
         }
 
-        /* 內嵌模型方框 */
         .iframe-container {
             border-radius: 15px;
-            overflow: hidden; /* 確保 iframe 的角也是圓的 */
-            border: 1px solid #eeeeee;
+            overflow: hidden;
+            border: 2px solid #FFEbee;
         }
 
-        /* 分享連結樣式 */
-        .share-link {
-            display: inline-block;
-            margin-bottom: 20px;
-            text-decoration: none;
-            color: #F06292;
-            font-size: 0.85rem;
-            padding: 5px 15px;
-            border: 1px solid #F8BBD0;
-            border-radius: 20px;
-            transition: all 0.3s;
-        }
-
-        .share-link:hover {
-            background-color: #FFEbee;
-            transform: scale(1.05);
-        }
-
-        /* 返回按鈕 */
         .back-nav {
             margin-top: 30px;
             text-decoration: none;
@@ -97,10 +103,14 @@
 </head>
 <body>
 
-    <a href="https://skfb.ly/pHQyX" class="share-link">🔗 share with link</a>
-
     <div class="sketchfab-embed-wrapper">
-        <span class="user-name">I am caizhen</span>
+        <div class="user-info-row">
+            <span class="user-name">I am caizhen</span>
+            <a href="https://skfb.ly/pHQyX" class="share-tag" target="_blank">
+                <i class="fa-solid fa-share-nodes"></i> Share with link
+            </a>
+        </div>
+
         <span class="model-title">This is my 3D model: meeeee</span>
         
         <hr>
@@ -114,10 +124,6 @@
                 mozallowfullscreen="true" 
                 webkitallowfullscreen="true" 
                 allow="autoplay; fullscreen; xr-spatial-tracking" 
-                xr-spatial-tracking 
-                execution-while-out-of-viewport 
-                execution-while-rendered 
-                web-share 
                 src="https://sketchfab.com/models/f2bc1f306f8c4302ac87faa569ebc64f/embed">
             </iframe>
         </div>
