@@ -9,7 +9,6 @@
     <script src="https://cdn.babylonjs.com/viewer/babylon.viewer.js"></script>
     
     <style>
-        /* 1. 設定背景顏色為鵝黃色 */
         body {
             background-color: #FFF8E1;
             font-family: 'Segoe UI', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
@@ -21,13 +20,12 @@
             min-height: 100vh;
         }
 
-        /* 2. 美化下拉選單為粉色方框 */
         select {
             width: 400px;
             padding: 12px 20px;
             margin-bottom: 25px;
-            background-color: #FFEbee; /* 淺粉色 */
-            border: 2px solid #F8BBD0; /* 粉色邊框 */
+            background-color: #FFEbee; 
+            border: 2px solid #F8BBD0; 
             border-radius: 12px;
             color: #880E4F;
             font-size: 1rem;
@@ -43,26 +41,22 @@
             box-shadow: 0 6px 12px rgba(240, 98, 146, 0.2);
         }
 
-        /* 3. 3D 視窗容器：維持 400x500 */
         .viewerContainer {
             width: 400px;
             height: 500px;
             background: white;
-            border: 6px solid #FFEbee; /* 粉色粗邊框 */
+            border: 6px solid #FFEbee; 
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-            image-rendering: pixelated; /* 保持你原本的設定 */
         }
 
-        /* 確保 babylon 標籤填滿容器 */
         babylon {
             width: 100%;
             height: 100%;
             display: block;
         }
 
-        /* 底部返回連結 */
         .back-nav {
             margin-top: 30px;
             text-decoration: none;
@@ -80,14 +74,12 @@
     </style>
 
     <script>
-        // 完全保留你原本更新 NavBar 與 VR 設定的邏輯
         function loadit(modelUrl) {
             if(modelUrl) {
                 let viewer = BabylonViewer.viewerManager.getViewerById('viewerID');
                 let temp = viewer.templateManager.getTemplate('navBar');
                 let param = temp._configuration;
                 
-                // 維持你的 NavBar 參數設定
                 param.params.hideVr = false;
                 param.params.disableOnFullscreen = true;
                 
@@ -104,11 +96,13 @@
         <option value="./models/alice.glb">Alice</option>
         <option value="./models/Astronaut.glb">Astronaut</option>
         <option value="./models/buddha.glb">Buddha</option>
+        <option value="./models/cac-1776925943472.glb">caizhenhw</option>
     </select>
 
     <div class='viewerContainer'>
         <babylon id="viewerID">
-            <vr></vr> </babylon>
+            <vr></vr> 
+        </babylon>
     </div>
 
     <a href="index.html" class="back-nav">← Back to Menu</a>
